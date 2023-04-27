@@ -1,7 +1,6 @@
-remote_theme: pages-themes/minimal@v0.2.0
-plugins:
-- jekyll-remote-theme # add this line to the plugins list if you already have one
-title: Nicole Zattarin
-twitter_username: zattacole
-github_username:  nicolezattarin
-email: nicole.zattarin@gmail.com
+title: Minimal theme
+logo: /assets/img/logo.png
+description: Minimal is a theme for GitHub Pages.
+show_downloads: true
+google_analytics:
+theme: jekyll-theme-minimal
