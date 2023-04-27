@@ -4,6 +4,3 @@ plugins:
 title: Nicole Zattarin
 twitter_username: zattacole
 github_username:  nicolezattarin
-
-# include image
-<img src="img.png" alt="img" width="200"/>
