@@ -29,10 +29,9 @@
 
         {% if site.github.is_user_page %}
 
-        <!-- set github image with link to profile -->
-        <a href="{{ site.github.owner_url }}">
-          <img class="avatar" src="devicon-github-original" alt="Github" />
-        </a>
+        <!-- set github image with link to profile: format should be github logo and nickname -->
+        <p class="view"><a href="{{ site.github.owner_url }}"><img src="{{site.github.owner_gravatar_url}}" alt="nicolezattarin" /></a></p>
+
         {% endif %}
 
         
@@ -46,7 +45,6 @@
         {% if site.github.is_project_page %}
         <p>This project is maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a></p>
         {% endif %}
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
       </footer>
     </div>
     <script src="{{ "/assets/js/scale.fix.js" | relative_url }}"></script>
