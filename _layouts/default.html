@@ -28,8 +28,16 @@
         {% endif %}
 
         <p align="float">
+        {% if site.github.is_user_page %}
         <!-- set github image with link to profile: format should be github logo and nickname -->
-        <a href="{{ site.github.owner_url }}"><img src="images/githublogo.png" alt="nicolezattarin" width="50"/></a></p><a href="mailto:{{ site.email }}"><img src="images/Gmail-logo.png" alt="nicolezattarin" width="50"/></a></p><a href="https://twitter.com/{{ site.twitter_username }}"><img src="images/twitter.jpg" alt="nicolezattarin" width="50"/></a></p>
+        <a href="{{ site.github.owner_url }}"><img src="images/githublogo.png" alt="nicolezattarin" width="50"/></a>
+        {% endif %}
+        {% if site.email %}
+        <a href="mailto:{{ site.email }}"><img src="images/Gmail-logo.png" alt="nicolezattarin" width="50"/></a>
+        {% endif %}
+        {% if site.twitter_username %}
+        <a href="https://twitter.com/{{ site.twitter_username }}"><img src="images/twitter.jpg" alt="nicolezattarin" width="50"/></a>
+        {% endif %}
        </p>
 
         
