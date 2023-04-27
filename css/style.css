@@ -125,10 +125,10 @@ figure {
     height: 150px;
     margin: 0 auto;
     margin-bottom: 30px;
-    -webkit-border-radius: 50%;
+    /* -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
-    -ms-border-radius: 50%;
-    border-radius: 50%;
+    -ms-border-radius: 50%; */
+    /* border-radius: 50%; */
     border: 3px solid white;}
 #colorlib-aside h1{
     color: #000;
