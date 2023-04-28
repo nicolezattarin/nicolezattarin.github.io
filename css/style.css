@@ -104,7 +104,7 @@ figure {
   width: 300px;
   position: fixed;
   z-index: 1001;
-    background-color: #f2f3f7;
+    background-color: #fae5ff;
   -webkit-transition: 0.5s;
   -o-transition: 0.5s;
   transition: 0.5s; }
@@ -505,7 +505,7 @@ margin-left: 10px;}
 
 .hire {
   padding: 20px;
-  background: #d5c9fb; }
+  background: #e3daff; }
   .hire h2 {
     line-height: 1.5; }
   .hire .btn-hire {
