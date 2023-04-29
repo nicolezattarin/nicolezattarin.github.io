@@ -1588,8 +1588,6 @@ align-items: stretch;}
 
 /* skill box */
 .skill-box {
-  margin-bottom: 30px; 
-  padding: 20px;
   background: #f2f3f7;
   float: left;
   align-self: left;
