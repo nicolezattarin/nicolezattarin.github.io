@@ -1592,5 +1592,6 @@ align-items: stretch;}
   padding: 20px;
   background: #f2f3f7;
   float: left;
+  align-self: left;
 
 }
