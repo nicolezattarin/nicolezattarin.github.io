@@ -301,23 +301,85 @@
                   <div class="colorlib-narrow-content">
                      <div class="row">
                         <div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
-                              <script src="https://tarptaeya.github.io/repo-card/repo-card.js"></script>
-                              <!-- force div to be 50% width -->
+                              <!-- Custom GitHub Repo Cards -->
                               <style>
+                                 #github-repos-container {
+                                    display: flex;
+                                    flex-wrap: wrap;
+                                    gap: 20px;
+                                    justify-content: flex-start;
+                                 }
                                  .repo-card {
-                                 width: 360px;
-                                 float:left;
+                                    width: 360px;
+                                    max-width: 100%;
+                                    padding: 16px;
+                                    border: 1px solid #e1e4e8;
+                                    border-radius: 6px;
+                                    background-color: #ffffff;
+                                    box-sizing: border-box;
+                                    transition: box-shadow 0.3s ease;
+                                 }
+                                 .repo-card:hover {
+                                    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+                                 }
+                                 .repo-card-title {
+                                    font-size: 16px;
+                                    font-weight: 600;
+                                    color: #0366d6;
+                                    text-decoration: none;
+                                    margin-bottom: 8px;
+                                    display: block;
+                                 }
+                                 .repo-card-title:hover {
+                                    text-decoration: underline;
+                                 }
+                                 .repo-card-description {
+                                    font-size: 14px;
+                                    color: #586069;
+                                    margin-bottom: 12px;
+                                    line-height: 1.5;
+                                 }
+                                 .repo-card-meta {
+                                    font-size: 12px;
+                                    color: #586069;
+                                    display: flex;
+                                    align-items: center;
+                                    gap: 16px;
+                                 }
+                                 .repo-card-language {
+                                    display: flex;
+                                    align-items: center;
+                                    gap: 4px;
+                                 }
+                                 .repo-card-language-color {
+                                    width: 12px;
+                                    height: 12px;
+                                    border-radius: 50%;
+                                    display: inline-block;
+                                 }
+                                 .repo-card-stars {
+                                    display: flex;
+                                    align-items: center;
+                                    gap: 4px;
+                                 }
+                                 .repo-card-forks {
+                                    display: flex;
+                                    align-items: center;
+                                    gap: 4px;
+                                 }
+                                 .loading-indicator {
+                                    text-align: center;
+                                    color: #586069;
+                                    padding: 20px;
+                                    font-size: 14px;
+                                 }
+                                 @media (max-width: 768px) {
+                                    .repo-card {
+                                       width: 100%;
+                                    }
                                  }
                               </style>
-                              <div class="container">
-                                 <div class="repo-card" data-repo="nicolezattarin/LOB-feature-analysis" ></div> &ensp; <div class="repo-card" data-repo="nicolezattarin/BERT-Aspect-Based-Sentiment-Analysis" ></div>
-                              </div>  <br> 
-                              <div class="container">
-                                 <div class="repo-card" data-repo="nicolezattarin/PointCloudCompression" ></div> &ensp; <div class="repo-card" data-repo="nicolezattarin/3D-Object-Classification" ></div> 
-                              </div> <br>
-                              <div class="container">
-                                 <div class="repo-card" data-repo="nicolezattarin/IoMT-efficient-information-distribution" ></div> &ensp; <div class="repo-card" data-repo="nicolezattarin/OpenCV-parking-lot-detection" ></div>
-                              </div>
+                              <div id="github-repos-container"><div class="loading-indicator">Loading projects...</div></div>
                            </div>
                         </div>
                      </div>
@@ -395,5 +457,186 @@
       <script src="js/jquery.countTo.js"></script>
       <!-- MAIN JS -->
       <script src="js/main.js"></script>
+      <!-- Custom GitHub Repo Cards Script -->
+      <script>
+      (function() {
+          // Language colors from GitHub
+          const languageColors = {
+              'Python': '#3572A5',
+              'Jupyter Notebook': '#DA5B0B',
+              'C++': '#f34b7d',
+              'C': '#555555',
+              'JavaScript': '#f1e05a',
+              'HTML': '#e34c26',
+              'CSS': '#563d7c',
+              'Java': '#b07219',
+              'TypeScript': '#2b7489'
+          };
+          
+          // Repository list with fallback data
+          const repos = [
+              {
+                  id: 'nicolezattarin/LOB-feature-analysis',
+                  fallback: {
+                      name: 'LOB-feature-analysis',
+                      html_url: 'https://github.com/nicolezattarin/LOB-feature-analysis',
+                      description: 'Feature analysis and extraction from Limit Order Book data',
+                      language: 'Jupyter Notebook',
+                      stargazers_count: 2,
+                      forks_count: 0
+                  }
+              },
+              {
+                  id: 'nicolezattarin/BERT-Aspect-Based-Sentiment-Analysis',
+                  fallback: {
+                      name: 'BERT-Aspect-Based-Sentiment-Analysis',
+                      html_url: 'https://github.com/nicolezattarin/BERT-Aspect-Based-Sentiment-Analysis',
+                      description: 'Aspect-Based Sentiment Analysis using BERT for NLP tasks',
+                      language: 'Jupyter Notebook',
+                      stargazers_count: 1,
+                      forks_count: 0
+                  }
+              },
+              {
+                  id: 'nicolezattarin/PointCloudCompression',
+                  fallback: {
+                      name: 'PointCloudCompression',
+                      html_url: 'https://github.com/nicolezattarin/PointCloudCompression',
+                      description: 'Point cloud compression techniques and algorithms',
+                      language: 'Python',
+                      stargazers_count: 0,
+                      forks_count: 0
+                  }
+              },
+              {
+                  id: 'nicolezattarin/3D-Object-Classification',
+                  fallback: {
+                      name: '3D-Object-Classification',
+                      html_url: 'https://github.com/nicolezattarin/3D-Object-Classification',
+                      description: '3D object classification using deep learning',
+                      language: 'Python',
+                      stargazers_count: 0,
+                      forks_count: 0
+                  }
+              },
+              {
+                  id: 'nicolezattarin/IoMT-efficient-information-distribution',
+                  fallback: {
+                      name: 'IoMT-efficient-information-distribution',
+                      html_url: 'https://github.com/nicolezattarin/IoMT-efficient-information-distribution',
+                      description: 'Efficient information distribution in Internet of Medical Things',
+                      language: 'Python',
+                      stargazers_count: 0,
+                      forks_count: 0
+                  }
+              },
+              {
+                  id: 'nicolezattarin/OpenCV-parking-lot-detection',
+                  fallback: {
+                      name: 'OpenCV-parking-lot-detection',
+                      html_url: 'https://github.com/nicolezattarin/OpenCV-parking-lot-detection',
+                      description: 'Parking lot detection and monitoring using OpenCV',
+                      language: 'Python',
+                      stargazers_count: 0,
+                      forks_count: 0
+                  }
+              }
+          ];
+          
+          function createRepoCard(repo) {
+              const card = document.createElement('div');
+              card.className = 'repo-card';
+              
+              const title = document.createElement('a');
+              title.className = 'repo-card-title';
+              title.href = repo.html_url;
+              title.target = '_blank';
+              title.rel = 'noopener noreferrer';
+              title.setAttribute('aria-label', 'View ' + repo.name + ' on GitHub');
+              title.textContent = repo.name;
+              
+              const description = document.createElement('div');
+              description.className = 'repo-card-description';
+              description.textContent = repo.description || 'No description available';
+              
+              const meta = document.createElement('div');
+              meta.className = 'repo-card-meta';
+              
+              if (repo.language) {
+                  const language = document.createElement('div');
+                  language.className = 'repo-card-language';
+                  
+                  const langColor = document.createElement('span');
+                  langColor.className = 'repo-card-language-color';
+                  langColor.style.backgroundColor = languageColors[repo.language] || '#333';
+                  
+                  language.appendChild(langColor);
+                  language.appendChild(document.createTextNode(repo.language));
+                  meta.appendChild(language);
+              }
+              
+              if (repo.stargazers_count > 0) {
+                  const stars = document.createElement('div');
+                  stars.className = 'repo-card-stars';
+                  stars.appendChild(document.createTextNode('⭐ ' + repo.stargazers_count));
+                  meta.appendChild(stars);
+              }
+              
+              if (repo.forks_count > 0) {
+                  const forks = document.createElement('div');
+                  forks.className = 'repo-card-forks';
+                  forks.appendChild(document.createTextNode('🔱 ' + repo.forks_count));
+                  meta.appendChild(forks);
+              }
+              
+              card.appendChild(title);
+              card.appendChild(description);
+              card.appendChild(meta);
+              
+              return card;
+          }
+          
+          async function loadRepos() {
+              const container = document.getElementById('github-repos-container');
+              if (!container) return;
+              
+              try {
+                  // Fetch all repos in parallel for better performance
+                  const fetchPromises = repos.map(repoData =>
+                      fetch(`https://api.github.com/repos/${repoData.id}`)
+                          .then(response => response.ok ? response.json() : repoData.fallback)
+                          .catch(() => {
+                              console.log(`Using fallback data for ${repoData.id}`);
+                              return repoData.fallback;
+                          })
+                  );
+                  
+                  const repoDataList = await Promise.all(fetchPromises);
+                  
+                  // Clear loading indicator
+                  container.innerHTML = '';
+                  
+                  // Add all repo cards
+                  repoDataList.forEach(repoData => {
+                      container.appendChild(createRepoCard(repoData));
+                  });
+              } catch (error) {
+                  console.error('Error loading repositories:', error);
+                  // Clear loading indicator and show error or fallback
+                  container.innerHTML = '';
+                  repos.forEach(repoData => {
+                      container.appendChild(createRepoCard(repoData.fallback));
+                  });
+              }
+          }
+          
+          // Load repos when DOM is ready
+          if (document.readyState === 'loading') {
+              document.addEventListener('DOMContentLoaded', loadRepos);
+          } else {
+              loadRepos();
+          }
+      })();
+      </script>
    </body>
 </html>
